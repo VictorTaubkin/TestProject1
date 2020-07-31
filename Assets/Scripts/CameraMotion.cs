@@ -46,12 +46,12 @@ public class CameraMotion : MonoBehaviour
         else // update height to terrain height in point (position.x,,position.z)
         {
             Vector3 pos = new Vector3(transform.position.x, 0, transform.position.z);
-            point.y = 3+Terrain.activeTerrain.SampleHeight(pos)-transform.position.y; // delta in Y direction
+            point.y = 1.6f+Terrain.activeTerrain.SampleHeight(pos)-transform.position.y; // delta in Y direction
          }
-         transform.Translate(point);
+ //        transform.Translate(point);
 
         // we shall use CharacterController to move and to stop if camera collides with another object
         Vector3 direction = transform.TransformDirection(Vector3.forward * Time.deltaTime * _speed);
- //       _characterController.Move(direction);
+        _characterController.Move(direction);
     }
 }
