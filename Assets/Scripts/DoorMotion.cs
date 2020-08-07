@@ -5,11 +5,13 @@ using UnityEngine;
 public class DoorMotion : MonoBehaviour
 {
     public Animator animator;
+    public GameObject door_axis;
     public bool isOpen;
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+ //       animator = GetComponent<Animator>();
+        animator = door_axis.GetComponent<Animator>();
         isOpen = false;
     }
 
@@ -21,7 +23,7 @@ public class DoorMotion : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("MainCamera"))
+        if (other.CompareTag("MainCamera")|| other.gameObject.tag == "RedKnight")
         {
             animator.SetTrigger("Open");
             isOpen = true;
