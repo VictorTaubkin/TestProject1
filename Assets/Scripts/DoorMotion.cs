@@ -27,8 +27,10 @@ public class DoorMotion : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (/*other.CompareTag("MainCamera")||*/ other.gameObject.tag == "RedKnight")
+        if ( other.gameObject.tag == "RedKnight")
         {
+            // update hp info
+            ShowInfo.hp--;
             animator.SetTrigger("Open");
             isOpen = true;
  //           audioSource.Play();
@@ -39,7 +41,7 @@ public class DoorMotion : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (isOpen)
+        if (isOpen && other.gameObject.tag == "RedKnight")
         {
             animator.SetTrigger("Close");
             isOpen = false;
