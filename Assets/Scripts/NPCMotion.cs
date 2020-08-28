@@ -12,11 +12,12 @@ public class NPCMotion : MonoBehaviour
     {
         theAgent = GetComponent<NavMeshAgent>();
         theAgent.SetDestination(target.transform.position);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        GetComponent<Animation>().Play("walk");        
     }
 }
